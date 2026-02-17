@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormaPro - Accueil</title>
+    
+    <!-- <link rel="stylesheet" href="../contact.html">
+    <link rel="stylesheet" href="../mes_reservations.html"> -->
+    <!-- Bootstrap css -->
+    <link href="../bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Icones Bootstrap -->
+    <link rel="stylesheet" href="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/">    
+    <style>
+            /* Variables de couleurs */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f97316;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+        }
+        
+        /* ========== STYLES GÉNÉRAUX ========== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+        }
+        
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background-color: var(--dark-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+        
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* ========== SECTION TITLE ========== */
+        .section-title {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* ========== CARDS FORMATIONS ========== */
+        .formation-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .formation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .formation-card h5 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .formation-info {
+            margin-bottom: 15px;
+            color: #64748b;
+        }
+        
+        .formation-info i {
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+        
+        /* BADGES PLACES */
+        .badge-places {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        
+        .badge-disponible {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+        
+        .badge-limite {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        
+        .badge-complet {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        
+        /* BOUTONS */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background-color: #94a3b8;
+            border: none;
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+        
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar - Menu de navigation -->
+      
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index_1.html">
+                <i class="ms-2">
+                     <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/book-open.svg" alt="">
+                     <span class="text-white fw-bold fs-4"style="font-size: 20px;">FormaPro</span>
+                </i> 
+            </a>
+            
+            <!-- Bouton mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fst-italic">
+                    <li class="nav-item">
+                        <a class="nav-link active me-3 fs-5" href="index_1.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  fs-5" href="mes_reservations.html">Mes Réservations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ms-3 me-1 fs-5" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+       <!-- Hero section -->
+    <section class="hero">
+        <div class="container">
+            <i class="ms-2">
+                <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/award.svg" alt="">
+            </i> 
+            <span class="text-white fw-bold fs-3 "style="font-size: 20px;">Réservez Votre Formation Professionnelle</span>
+            <p class="mt-3 ms-2">Places limitées - Inscrivez-vous dès maintenant pour développer vos compétences</p>
+        </div>
+    </section>
+
+    <!-- Formations disponibles  -->
+    <section class="container my-5">
+        <h2 class="section-title">
+            <i class="ms-2">
+               <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/book-bookmark.svg" alt="">
+                 <span class="text-dark fw-bold fs-4"style="font-size: 20px;">Formations Disponibles </span>
+            </i> 
+        </h2>
+        
+        <div class="row">
+            
+            <!-- Formation 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="formation-card">
+                    <h5><i class="ms-2 ">
+                         <img class=" bg-opacity" width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/code.svg" alt="">
+                     <span class="text-primary fw-bold  fs-5"style= "font-size: 20px; color: blue;"> Développement Web Full-Stack </span>
+                       </i>
+                   </h5>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">
+                     <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong>Horaires :</strong><br>
+                           Lundi, Mercredi, Vendredi<br>
+                        14h00 - 17h00</span>
+                        </i>
+                        
+                        
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Durée :</strong> 3 mois
+                        </i>
+                        
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                            <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Places :</strong><br> </span>
+                        </i>
+                        
+                        <span class="badge-places badge-disponible">5 / 20 réservées</span>
+                    </div>
+                    
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalReservation" 
+                            onclick="selectFormation('Développement Web Full-Stack')">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="18px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-check.svg" alt="">
+                          <span class="text-white fs-5"style="font-size: 12px;">Réserver maintenant</span>
+                        </i> 
+                    </button>
+                </div>
+            </div>
+
+            <!-- Formation 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="formation-card">
+                    <h5><i class="ms-2">
+                         <img class=" bg-opacity" width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/chart-line.svg" alt="">
+                         <span class="text-primary fw-bold  fs-5"style= "font-size: 20px; color: blue;">Marketing Digital </span> 
+                    </i></h5>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">
+                     <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong>Horaires :</strong><br>
+                          Mardi, Jeudi<br>
+                        09h00 - 12h00</span>
+                        </i>
+                    </div>
+
+                      <div class="formation-info">
+                       <i class="ms-2">
+                           <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Durée :</strong> 2 mois
+                        </i>
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                            <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Places :</strong><br> </span>
+                        </i>        
+                        <span class="badge-places badge-limite">5 / 20 réservées</span>
+                      
+                    </div>
+                    
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalReservation"
+                            onclick="selectFormation('Marketing Digital')">
+                        <i class="ms-2">
+                          <img class="bg-opacity-50 " width="18px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-check.svg" alt="">
+                          <span class="text-white fs-5"style="font-size: 12px;">Réserver maintenant</span>
+                        </i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- FORMATION 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="formation-card">
+                    <h5><i class="ms-2">
+                       <img class=" bg-opacity" width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/palette.svg" alt="">
+                         <span class="text-primary fw-bold  fs-5"style= "font-size: 20px; color: blue;">Design UI/UX </span> 
+                    </i> </h5>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">
+                     <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong>Horaires :</strong><br>
+                          Vendredi, Samedi<br>
+                        10h00 - 13h00</span>
+                        </i>
+                    </div>
+                    
+                    <div class="formation-info">
+                       <i> 
+                        <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Durée :</strong> 6 semaines
+                        </i>
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i>  
+                         <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Places :</strong><br> </span>
+                        </i>        
+                        <span class="badge-places badge-complet">10 / 10 réservées</span>
+                    </div>
+                    
+                    <button class="btn btn-secondary w-100" disabled>
+                        <i class="ms-2">
+                            <img class="bg-opacity-50 " width="18px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/circle-xmark.svg" alt="">
+                          <span class="text-white fs-5"style="font-size: 12px;">Complet</span>
+                        </i> 
+                    </button>
+                </div>
+            </div>
+
+            <!-- FORMATION 4 -->
+            <div class="col-lg-4 col-md-6 mt-3">
+                <div class="formation-card">
+                    <h5><i class="ms-2">
+                       <img class=" bg-opacity" width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/chart-bar.svg" alt="">
+                         <span class="text-primary fw-bold  fs-5"style= "font-size: 20px; color: blue;">Data Science & Analyse </span>  
+                    </i> </h5>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">
+                     <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong>Horaires :</strong><br>
+                          Mercredi, Samedi<br>
+                        15h00 - 18h00</span>
+                        </i>
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i> 
+                        <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Durée :</strong> 4 mois
+                        </i>
+                    </div>
+
+                    <div class="formation-info">  
+                        <i>  
+                         <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Places :</strong><br> </span>
+                        </i>        
+                        <span class="badge-places badge-disponible">3 / 25 réservées</span>
+                    
+                        
+                    </div>
+                    
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalReservation"
+                            onclick="selectFormation('Data Science & Analyse')">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="18px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-check.svg" alt="">
+                          <span class="text-white fs-5"style="font-size: 12px;">Réserver maintenant</span> 
+                        </i> 
+                    </button>
+                </div>
+            </div>
+
+            <!-- FORMATION 5 -->
+            <div class="col-lg-4 col-md-6 mt-3">
+                <div class="formation-card">
+                    <h5><i class="ms-2">
+                       <img class=" bg-opacity" width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/shield.svg" alt="">
+                     <span class="text-primary fw-bold  fs-5"style= "font-size: 20px; color: blue;"> Cybersécurité </span>
+                    </i> 
+                   </h5>
+                    
+                    <div class="formation-info">
+                       <i class="ms-2">
+                           <img class="bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">
+                     <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong>Horaires :</strong><br>
+                          Lundi, Jeudi<br>
+                        18h00 - 21h00</span>
+                        </i> 
+                    </div>
+
+                      <div class="formation-info">  
+                      <i> 
+                        <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Durée :</strong> 5 mois
+                       </span> 
+                      </i>   
+                 
+                    </div>
+                    
+                    <div class="formation-info">
+                         <i>  
+                         <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Places :</strong><br> </span>
+                        </i>        
+                        <span class="badge-places badge-disponible">7 / 18 réservées</span>
+                    </div>
+                    
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalReservation"
+                            onclick="selectFormation('Cybersécurité')">
+                        <i class="ms-2">
+                             <img class="bg-opacity-50 " width="18px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-check.svg" alt="">
+                          <span class="text-white fs-5"style="font-size: 12px;">Réserver maintenant</span>     
+                        </i> 
+                    </button>
+                </div>
+            </div>
+
+            <!-- FORMATION 6 -->
+            <div class="col-lg-4 col-md-6 mt-3">
+                <div class="formation-card">
+                    <h5> 
+                        <i class="ms-2">
+                       <img class=" bg-opacity" width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/table-columns.svg" alt="">
+                     <span class="text-primary fw-bold  fs-5"style= "font-size: 20px; color: blue;"> Gestion de projet agile </span>
+                    </i> 
+                    </h5>
+                    
+                    <div class="formation-info">
+                        <i class="ms-2">
+                           <img class="bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">
+                     <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong>Horaires :</strong><br>
+                          Mardi, Vendredi<br>
+                        13h00 - 16h00</span>
+                        </i> 
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i> 
+                        <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Durée :</strong> 6 semaines
+                       </span> 
+                      </i>   
+                    </div>
+                    
+                    <div class="formation-info">
+                        <i>  
+                         <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">
+                          <span class="text-dark text-opacity-75"style="font-size: 15px;"> <strong class="fst-normal">Places :</strong><br> </span>
+                        </i>        
+                        <span class="badge-places badge-limite">18 / 20 réservées</span>
+                    </div>
+                    
+                    <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#modalReservation"
+                            onclick="selectFormation('Gestion de Projet Agile')">
+                        <i class="ms-2">
+                            <img class="bg-opacity-50 " width="18px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-check.svg" alt="">
+                          <span class="text-white fs-5"style="font-size: 12px;">Réserver maintenant</span>     
+                        </i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="ms-2">
+                       <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/book-open.svg" alt="">
+                     <span class="text-white fw-bold fs-4"style="font-size: 20px;">FormaPro</span>
+                     </i> 
+                   </h5>
+                    <p>Votre plateforme de réservation de formations professionnelles de qualité.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liens rapides</h5>
+                    <p>
+                        <a href="index_1.html">Accueil</a><br>
+                        <a href="mes_reservations.html">Mes Réservations</a><br>
+                        <a href="contact.html">Contact</a>
+                    </p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Suivez-nous</h5>
+                    <a href="#" class="me-3">
+                        <i class="ms-2">
+                          <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/brands/facebook.svg" alt="">
+                          <span class=""style="font-size: 15px; color: #ff6600;"> Facebook
+                       </span>   
+                        </i>
+                    </a> <br>
+
+                    <a href="#" class="me-3">
+                        <i class="ms-2">
+                            <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/brands/twitter.svg" alt="">
+                          <span class=""style="font-size: 15px; color: #ff6600;"> Twitter
+                       </span>    
+                        </i>
+                    </a> <br>
+
+                    <a href="#" class="me-3">
+                        <i class="ms-2">
+                             <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/brands/linkedin.svg" alt="">
+                          <span class=""style="font-size: 15px; color: #ff6600;"> LinkedIn
+                       </span>    
+                        </i>
+                    </a>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p>&copy; 2025 FormaPro - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!--  Modal de réservation -->
+    <div class="modal fade" id="modalReservation" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: var(--primary-color); color: white;">
+                    <h5 class="modal-title">
+                        <i class="bi bi-calendar-plus"></i> Réserver une formation
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                
+                <div class="modal-body">
+                    <form id="formReservation">
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-book"></i> Formation choisie
+                            </label>
+                            <input type="text" class="form-control" id="formationChoisie" readonly>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-person"></i> Nom complet *
+                            </label>
+                            <input type="text" class="form-control" placeholder="Ex: Jean Dupont" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-envelope"></i> Email *
+                            </label>
+                            <input type="email" class="form-control" placeholder="Ex: jean.dupont@email.com" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-telephone"></i> Téléphone *
+                            </label>
+                            <input type="tel" class="form-control" placeholder="Ex: +229 XX XX XX XX" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-chat-left-text"></i> Motivation (optionnel)
+                            </label>
+                            <textarea class="form-control" rows="3" placeholder="Pourquoi souhaitez-vous suivre cette formation ?"></textarea>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="acceptConditions" required>
+                            <label class="form-check-label" for="acceptConditions">
+                                J'accepte les <a href="#">conditions générales</a>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Annuler
+                    </button>
+                    <button type="submit" form="formReservation" class="btn btn-primary">
+                        <i class="bi bi-check-circle"></i> Confirmer la réservation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap js + script -->
+    <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function selectFormation(nomFormation) {
+            document.getElementById('formationChoisie').value = nomFormation;
+        }
+        
+        document.getElementById('formReservation').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Réservation confirmée ! Vous recevrez un email de confirmation.');
+            var modal = bootstrap.Modal.getInstance(document.getElementById('modalReservation'));
+            modal.hide();
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

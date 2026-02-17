@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormaPro - Mes Réservations</title>
+    
+    <!-- Bootstrap Css -->
+    <link href="../bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Icônes Bootstrap -->
+       <link rel="stylesheet" href="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/">    
+    
+    <style>
+        /*  Variables de couleurs */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f97316;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+        }
+        
+        /*  Styles Généraux  */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+        }
+        
+        /*  NAVBAR */
+        .navbar {
+            background-color: var(--dark-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+        
+        /*  HEADER  */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+        
+        /* Section Title  */
+        .section-title {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        /*  Réservations  */
+        .reservations-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .table {
+            margin-bottom: 0;
+        }
+        
+        .table thead {
+            background-color: var(--light-bg);
+        }
+        
+        .table th {
+            color: var(--dark-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+        
+        /* Badges statut */
+        .badge {
+            padding: 6px 12px;
+            font-weight: 500;
+        }
+        
+         /*  Statistiques */
+        .stats-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stats-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .stats-card h3 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .stats-card p {
+            color: #64748b;
+            margin: 0;
+        }
+        
+                /*  FOOTER  */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+        
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+            /* RESPONSIVE   */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar - Menu de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="ms-2">
+                    <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/book-open.svg" alt="">
+                     <span class="text-white fw-bold fs-4"style="font-size: 20px;">FormaPro</span>
+                </i>  
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link me-3 fs-5" href="index_1.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fs-5" href="#">Mes Réservations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ms-3 me-1 fs-5" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <i class="ms-2">
+                <img class=" bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/bookmark.svg" alt="">
+            </i> 
+            <span class="text-white fw-bold fs-3 ms-2 mt-2 "style="font-size: 20px;" >Mes Réservations</span>
+            <p class="mt-3 ms-2 fs-4" >Gérez toutes vos inscriptions aux formations </p>
+
+            <!-- <h1><i class="ms-2">
+                <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/award.svg" alt="">
+               </i> </h1>
+            <p>Gérez toutes vos inscriptions aux formations</p> -->
+        </div>
+    </section>
+
+
+    <!-- Statistiques -->
+    <section class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="">
+                        <i class="ms-2 ">
+                         <img class=" bg-opacity-50 " width="50px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/circle-check.svg" alt="">   
+                        </i>
+                    </div>
+                    <h3 class="mt-3">2</h3>
+                    <p class="text-dark text-bold">Réservations confirmées</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 ">
+                <div class="stats-card">
+                    <div class="">
+                        <i class="ms-2">
+                           <img class=" bg-opacity-50 " width="50px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock.svg" alt="">   
+                        </i>
+                    </div>
+                    <h3 class="mt-3">1</h3>
+                    <p class="text-dark text-bold">En attente de validation</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="">
+                        <i class="ms-2" style="color: var(--primary-color);">
+                          <img class=" bg-opacity-50 " width="43px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-check.svg" alt="">      
+                        </i>
+                    </div>
+                    <h3 class="mt-3">3</h3>
+                    <p class="text-dark text-bold">Total de réservations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--  Liste de mes réservations -->
+    <section class="container my-5">
+        <h2 class="section-title">
+            <i class="ms-2">
+              <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/list-check.svg" alt="">
+                 <span class="text-dark fw-bold fs-3"style="font-size: 20px;">Listes de mes réservations </span> 
+            </i> 
+        </h2>
+        
+        <div class="reservations-section">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th><i class="ms-2">
+                                <img class=" mb-1 bg-opacity-25 " width="11px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/hashtag.svg" alt="">  
+                                <span class="fw-bold">ID</span>
+                            </i> </th>
+
+                            <th><i class="ms-2">
+                                 <img class=" me-1 mb-1 bg-opacity-50 " width="20px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/book-open.svg" alt="">  
+                                 <span class="fw-bold">Formation</span>
+                            </i> </th>
+
+                            <th><i class="ms-2">
+                                 <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-day.svg" alt="">  
+                                 <span class="fw-bold ">Date d'inscription</span>
+                            </i> </th>
+
+                            <th><i class="ms-2">
+                                  <img class=" me-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/clock-rotate-left.svg" alt="">  
+                                 <span class="fw-bold">Horaires</span>
+                            </i> </th>
+
+                            <th><i class="ms-2">
+                                <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/calendar-days.svg" alt="">  
+                                 <span class="fw-bold ">Début</span>
+                            </i> </th>
+
+                            <th><i class="ms-2">
+                                 <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/circle-check.svg" alt="">  
+                                 <span class="fw-bold ">Statut</span>
+                            </i> </th>
+
+                            <th><i class="ms-2">
+                                 <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/gear.svg" alt="">  
+                                 <span class="fw-bold ">Action</span>
+                            </i> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#001</strong></td>
+                            <td>Développement Web Full-Stack</td>
+                            <td>15/02/2025</td>
+                            <td>Lun-Mer-Ven<br><small class="text-muted">14h-17h</small></td>
+                            <td>03/03/2025</td>
+                            <td><span class="badge bg-success fs-5">Confirmée</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" onclick="annulerReservation(1)">
+                                    <i class="ms-2">
+                                       <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/trash-can.svg" alt="">  
+                                       <span class="fw-bold ">Annuler</span>
+                                    </i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#002</strong></td>
+                            <td>Marketing Digital</td>
+                            <td>10/02/2025</td>
+                            <td>Mar-Jeu<br><small class="text-muted">9h-12h</small></td>
+                            <td>25/02/2025</td>
+                            <td><span class="badge bg-warning text-dark fs-5">En attente</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" onclick="annulerReservation(2)">
+                                    <i class="ms-2">
+                                       <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/trash-can.svg" alt="">  
+                                       <span class="fw-bold ">Annuler</span>
+                                    </i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#003</strong></td>
+                            <td>Data Science & Analyse</td>
+                            <td>12/02/2025</td>
+                            <td>Mer-Sam<br><small class="text-muted">15h-18h</small></td>
+                            <td>01/03/2025</td>
+                            <td><span class="badge bg-success fs-5">Confirmée</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" onclick="annulerReservation(3)">
+                                    <i class="ms-2">
+                                       <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/trash-can.svg" alt="">  
+                                       <span class="fw-bold ">Annuler</span> 
+                                    </i> 
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Bouton pour ajouter une nouvelle réservation -->
+            <div class="mt-4 text-center">
+                <a href="index_1.html" class="btn btn-primary btn-lg">
+                    <i class="ms-2">
+                      <img class=" me-1 mb-1 bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/circle-plus.svg" alt="">  
+                      <span class="fw-bold ">Réserver une nouvelle formation</span>
+                    </i> 
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--  FOOTER -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="ms-2">
+                       <img class=" bg-opacity-50 " width="25px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/solid/book-open.svg" alt="">
+                     <span class="text-white fw-bold fs-4"style="font-size: 20px;">FormaPro</span>
+                     </i> 
+                   </h5>
+                    <p>Votre plateforme de réservation de formations professionnelles de qualité.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liens rapides</h5>
+                    <p>
+                        <a href="index_1.html">Accueil</a><br>
+                        <a href="#">Mes Réservations</a><br>
+                        <a href="contact.html">Contact</a>
+                    </p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Suivez-nous</h5>
+                    <a href="#" class="me-3">
+                        <i class="ms-2">
+                          <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/brands/facebook.svg" alt="">
+                          <span class=""style="font-size: 15px; color: #ff6600;"> Facebook
+                       </span>   
+                        </i>
+                    </a> <br>
+
+                    <a href="#" class="me-3">
+                        <i class="ms-2">
+                            <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/brands/twitter.svg" alt="">
+                          <span class=""style="font-size: 15px; color: #ff6600;"> Twitter
+                       </span>    
+                        </i>
+                    </a> <br>
+
+                    <a href="#" class="me-3">
+                        <i class="ms-2">
+                             <img class="bg-opacity-50 " width="17px" src="../fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/svgs/brands/linkedin.svg" alt="">
+                          <span class=""style="font-size: 15px; color: #ff6600;"> LinkedIn
+                       </span>    
+                        </i>
+                    </a>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p>&copy; 2025 FormaPro - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="bi bi-book"></i> FormaPro</h5>
+                    <p>Votre plateforme de réservation de formations professionnelles de qualité.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liens rapides</h5>
+                    <p>
+                        <a href="index.html">Accueil</a><br>
+                        <a href="mes-reservations.html">Mes Réservations</a><br>
+                        <a href="contact.html">Contact</a>
+                    </p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Suivez-nous</h5>
+                    <a href="#" class="me-3"><i class="bi bi-facebook"></i> Facebook</a><br>
+                    <a href="#" class="me-3"><i class="bi bi-twitter"></i> Twitter</a><br>
+                    <a href="#" class="me-3"><i class="bi bi-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p>&copy; 2025 FormaPro - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer> -->
+
+    <!--Boostrap Js + Script -->
+    <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Fonction pour annuler une réservation
+        function annulerReservation(id) {
+            if (confirm('Êtes-vous sûr de vouloir annuler cette réservation ?')) {
+                alert('Réservation #' + id + ' annulée avec succès.');
+                // Ici tu pourrais ajouter du code pour supprimer la ligne du tableau
+            }
+        }
+    </script>
+
+</body>
+</html>
