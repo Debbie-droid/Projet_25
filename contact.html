@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormaPro - Contact</title>
+    
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- ICONES BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+    
+    <style>
+
+        /* Variables de Couleurs */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #f97316;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+        }
+        
+        /* Styles Généraux  */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: var(--dark-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+        
+        /* Section Title */
+        .section-title {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* Formulaire de Contact */
+        .contact-form {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .form-control,
+        .form-select {
+            border: 2px solid #e2e8f0;
+            padding: 12px;
+        }
+        
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        /* Info Cards */
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .info-card h5 {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .info-card p {
+            color: #64748b;
+            margin: 0;
+        }
+        
+                 /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+        
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!--NAVBAR - MENU DE NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-book"></i> FormaPro
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mes_reservations.html">Mes Réservations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="bi bi-envelope"></i> Contactez-nous</h1>
+            <p>Une question ? Nous sommes là pour vous aider</p>
+        </div>
+    </section>
+
+    <!-- INFORMATIONS DE CONTACT -->
+    <section class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h5>Adresse</h5>
+                    <p>Cotonou, Bénin<br>Quartier des Cocotiers</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <h5>Téléphone</h5>
+                    <p>+229 XX XX XX XX<br>Lun-Ven : 8h-18h</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card">
+                    <div class="icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <h5>Email</h5>
+                    <p>contact@formapro.bj<br>support@formapro.bj</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE CONTACT -->
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="section-title text-center">
+                    <i class="bi bi-chat-dots"></i> Envoyez-nous un message
+                </h2>
+                
+                <div class="contact-form">
+                    <form id="formContact">
+                        <div class="row">
+                            <!-- Nom -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="bi bi-person"></i> Nom complet *
+                                </label>
+                                <input type="text" class="form-control" placeholder="Ex: Jean Dupont" required>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="bi bi-envelope"></i> Email *
+                                </label>
+                                <input type="email" class="form-control" placeholder="Ex: jean.dupont@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <!-- Téléphone -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="bi bi-telephone"></i> Téléphone
+                                </label>
+                                <input type="tel" class="form-control" placeholder="Ex: +229 XX XX XX XX">
+                            </div>
+                            
+                            <!-- Sujet -->
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="bi bi-tag"></i> Sujet *
+                                </label>
+                                <select class="form-select" required>
+                                    <option value="">Choisissez un sujet</option>
+                                    <option value="info">Demande d'information</option>
+                                    <option value="reservation">Question sur une réservation</option>
+                                    <option value="formation">Renseignement sur une formation</option>
+                                    <option value="technique">Problème technique</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-chat-left-text"></i> Votre message *
+                            </label>
+                            <textarea class="form-control" rows="6" placeholder="Décrivez votre demande en détail..." required></textarea>
+                        </div>
+                        
+                        <!-- Bouton d'envoi -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-send"></i> Envoyer le message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--- FAQ RAPIDE -->
+    <section class="container my-5">
+        <h2 class="section-title text-center">
+            <i class="bi bi-question-circle"></i> Questions fréquentes
+        </h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <!-- Question 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Comment réserver une formation ?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Rendez-vous sur la page d'accueil, choisissez votre formation et cliquez sur "Réserver maintenant". Remplissez le formulaire et validez. Vous recevrez une confirmation par email.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Puis-je annuler ma réservation ?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Oui, vous pouvez annuler votre réservation jusqu'à 48h avant le début de la formation via votre espace "Mes Réservations".
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Les formations délivrent-elles des certificats ?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Oui, toutes nos formations délivrent un certificat de participation reconnu après validation des acquis.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Quels sont les modes de paiement acceptés ?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Nous acceptons les paiements par mobile money, carte bancaire et virement. Possibilité de paiement en plusieurs fois.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5><i class="bi bi-book"></i> FormaPro</h5>
+                    <p>Votre plateforme de réservation de formations professionnelles de qualité.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Liens rapides</h5>
+                    <p>
+                        <a href="index.html">Accueil</a><br>
+                        <a href="mes_reservations.html">Mes Réservations</a><br>
+                        <a href="contact.html">Contact</a>
+                    </p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Suivez-nous</h5>
+                    <a href="#" class="me-3"><i class="bi bi-facebook"></i> Facebook</a><br>
+                    <a href="#" class="me-3"><i class="bi bi-twitter"></i> Twitter</a><br>
+                    <a href="#" class="me-3"><i class="bi bi-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p>&copy; 2025 FormaPro - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP JS + SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Gestion de la soumission du formulaire de contact
+        document.getElementById('formContact').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✅ Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
